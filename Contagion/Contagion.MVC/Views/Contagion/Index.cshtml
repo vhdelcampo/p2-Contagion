@@ -1,0 +1,8 @@
+@model IEnumerable<Contagion.MVC.Models.ContagionViewModel>
+
+<ul>
+  @foreach (var item in @Model)
+  {
+    <li>@item.Title</li>
+  }
+</ul>

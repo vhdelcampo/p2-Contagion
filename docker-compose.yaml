@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  mvc:
+    build:
+      context: Contagion/Contagion.MVC
+      dockerfile: ../../.docker/mvc.dockerfile
+    image: bennetcd/mvcproj
+    ports:
+      - 5000:80
+    networks:
+      - newt
+  api:
+    build:
+      context: Contagion/Contagion.API
+      dockerfile: ../../.docker/api.dockerfile
+    image: bennetcd/apiproj
+    ports:
+      - 4000:80
+    networks:
+      - newt
+
+networks:
+  newt:
+
+#docker-compose -f docker-compose.yaml up --build
