@@ -1,3 +1,2 @@
 # p2-Contagion
-Test Push
-Test Push (roby)
+Stay safe and alert with the RonaTracker location sharing application. View hotspot areas where infection levels are high or view safe spots with low infection levels, all in an effort to maintain social distancing. Contribute to well being of those around you by reporting your CV19 infection status. Sign up using your phone number and set your place anonymously with different levels of accuracy for those who want to stay more private.
