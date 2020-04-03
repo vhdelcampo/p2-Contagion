@@ -32,7 +32,7 @@ stages:
               dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
               dotnet build Contagion/*.sln
               dotnet sonarscanner end
-              
+
 
       # - job: analyze_api
       #   pool:
@@ -73,6 +73,7 @@ stages:
             inputs:
               command: logout
               containerRegistry: docker
+
 
   # - stage: deploy
   #   jobs:
