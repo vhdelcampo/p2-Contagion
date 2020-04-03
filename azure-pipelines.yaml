@@ -29,7 +29,7 @@ stages:
             inputs:
               name: "dotnet-sonarscanner"
           - script: |
-              dotnet sonarscanner begin /k:"Contagion_mvc" /o:"Team-Contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
+              dotnet sonarscanner begin /k:"b0aed97e538bd6c0035eaa74eaedf20ead86fa0b" /o:"Team-Contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
               dotnet build p2-Contagion/*.sln
               dotnet sonarscanner end /d:sonar.login=$SONAR_LOGIN
             env:
@@ -42,7 +42,7 @@ stages:
             inputs:
               name: "dotnet-sonarscanner"
           - script: |
-              dotnet sonarscanner begin /k:"Contagion_api" /o:"Team-Contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
+              dotnet sonarscanner begin /k:"5ea87949398ea9f9171f4bb44b090d5c5677c5da" /o:"Team-Contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
               dotnet build p2-Contagion/*.sln
               dotnet sonarscanner end /d:sonar.login=$SONAR_LOGIN
             env:
@@ -90,7 +90,7 @@ stages:
   #             projectName: $(Build.Repository.Name)
   #             buildImages: false
   #             detached: false
-  
+
 
 trigger:
   - master
