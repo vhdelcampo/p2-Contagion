@@ -47,6 +47,7 @@ stages:
       #         dotnet sonarscanner end /d:sonar.login=$SONAR_LOGIN
       #       env:
       #         SONAR_LOGIN: $(sonar.login)
+      
   - stage: pack
     jobs:
       - job: pack_mvc
