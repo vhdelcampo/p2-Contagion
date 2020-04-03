@@ -8,15 +8,16 @@ stages:
     jobs:
       - job: build_mvc
         steps:
-          - script: dotnet build p2_project/Webflix/Webflix.MVC/*.csproj
+          - script: dotnet build p2-Contagion/Contagion/Contagion.MVC/*.csproj
       - job: build_api
         steps:
-          - script: dotnet build p2_project/Webflix/Webflix.API/*.csproj
+          - script: dotnet build p2-Contagion/Contagion/Contagion.API/*.csproj
 
-  - stage: test
-    jobs:
-      - job: test_mvc
-      - job: test_api
+  # - stage: test
+  #   jobs:
+  #     - job: test_mvc
+  #     - job: test_api
+      
 
   - stage: analyze
     jobs:
@@ -28,8 +29,8 @@ stages:
             inputs:
               name: "dotnet-sonarscanner"
           - script: |
-              dotnet sonarscanner begin /k:"webflix_mvc" /o:"2002-24-dotnet" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
-              dotnet build p2_project/Webflix/*.sln
+              dotnet sonarscanner begin /k:"Contagion_mvc" /o:"Team-Contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
+              dotnet build p2-Contagion/*.sln
               dotnet sonarscanner end /d:sonar.login=$SONAR_LOGIN
             env:
               SONAR_LOGIN: $(sonar.login)
@@ -41,8 +42,8 @@ stages:
             inputs:
               name: "dotnet-sonarscanner"
           - script: |
-              dotnet sonarscanner begin /k:"webflix_api" /o:"2002-24-dotnet" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
-              dotnet build p2_project/Webflix/*.sln
+              dotnet sonarscanner begin /k:"Contagion_api" /o:"Team-Contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
+              dotnet build p2-Contagion/*.sln
               dotnet sonarscanner end /d:sonar.login=$SONAR_LOGIN
             env:
               SONAR_LOGIN: $(sonar.login)
@@ -55,8 +56,8 @@ stages:
               command: login
               containerRegistry: docker
           - script: |
-              docker image build --file p2_project/.docker/mvc.dockerfile --tag fredbelotte/mvcproj p2_project/Webflix/Webflix.MVC
-              docker image push fredbelotte/mvcproj
+              docker image build --file p2-Contagion.docker/mvc.dockerfile --tag bennetcd/mvcproj p2-Contagion/Contagion/Contagion.MVC
+              docker image push bennetcd/mvcproj
           - task: Docker@2
             inputs:
               command: logout
@@ -68,8 +69,8 @@ stages:
               command: login
               containerRegistry: docker
           - script: |
-              docker image build --file p2_project/.docker/api.dockerfile --tag fredbelotte/apiproj p2_project/Webflix/Webflix.API
-              docker image push fredbelotte/apiproj
+              docker image build --file p2-Contagion/api.dockerfile --tag bennetcd/apiproj p2-Contagion/Contagion/Contagion.API
+              docker image push bennetcd/apiproj
           - task: Docker@2
             inputs:
               command: logout
