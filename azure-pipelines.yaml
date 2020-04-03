@@ -28,7 +28,7 @@ stages:
   #           inputs:
   #             name: "dotnet-sonarscanner"
   #         - script: |
-  #             dotnet sonarscanner begin /k:"364ccbb00033f2f5af60887500a6d45f4bc6aff1" /o:"Team-Contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
+  #             dotnet sonarscanner begin /k:"364ccbb00033f2f5af60887500a6d45f4bc6aff1" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
   #             dotnet build p2-Contagion/*.sln
   #             dotnet sonarscanner end /d:sonar.login=$SONAR_LOGIN
   #           env:
@@ -41,7 +41,7 @@ stages:
       #       inputs:
       #         name: "dotnet-sonarscanner"
       #     - script: |
-      #         dotnet sonarscanner begin /k:"5ea87949398ea9f9171f4bb44b090d5c5677c5da" /o:"Team-Contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
+      #         dotnet sonarscanner begin /k:"5ea87949398ea9f9171f4bb44b090d5c5677c5da" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/" /d:sonar.login=$SONAR_LOGIN
       #         dotnet build p2-Contagion/*.sln
       #         dotnet sonarscanner end /d:sonar.login=$SONAR_LOGIN
       #       env:
@@ -56,7 +56,7 @@ stages:
               command: login
               containerRegistry: docker
           - script: |
-              docker image build --file p2-Contagion.docker/mvc.dockerfile --tag bennetcd/mvcproj Contagion/Contagion.MVC
+              docker image build --file p2-Contagion/.docker/mvc.dockerfile --tag bennetcd/mvcproj Contagion/Contagion.MVC
               docker image push bennetcd/mvcproj
           - task: Docker@2
             inputs:
@@ -69,7 +69,7 @@ stages:
               command: login
               containerRegistry: docker
           - script: |
-              docker image build --file p2-Contagion/api.dockerfile --tag bennetcd/apiproj Contagion/Contagion.API
+              docker image build --file p2-Contagion/.docker/api.dockerfile --tag bennetcd/apiproj Contagion/Contagion.API
               docker image push bennetcd/apiproj
           - task: Docker@2
             inputs:
