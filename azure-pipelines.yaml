@@ -85,10 +85,11 @@ stages:
             inputs:
               action: Run services
               dockerRegistry: Contagion
+              #azureSubscriptionEndpoint: p2
               containerRegistryType: Container Registry
               dockerComposeFile: docker-compose.yaml
               projectName: p2
-              buildImages: false
+              buildImages: true
               detached: true
 
 
