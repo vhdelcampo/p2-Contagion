@@ -1,6 +1,6 @@
-//using Contagion.Storage.Models;
+using Contagion.Storage.Models;
 using System.Collections.Generic;
-//using Contagion.Storage.Repositories;
+using Contagion.Storage.Repositories;
 
 namespace Contagion.MVC.Models
 {
