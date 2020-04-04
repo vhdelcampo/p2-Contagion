@@ -87,7 +87,7 @@ stages:
               azureSubscriptionEndpoint: p2
               containerRegistryType: Container Registry
               dockerComposeFile: docker-compose.yaml
-              projectName: $(Build.Repository.Name)
+              projectName: p2
               buildImages: false
               detached: true
 
