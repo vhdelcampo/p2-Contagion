@@ -84,7 +84,7 @@ stages:
             displayName: Run services
             inputs:
               action: Run services
-              azureSubscriptionEndpoint: Contagion
+              azureSubscriptionEndpoint: p2
               containerRegistryType: Container Registry
               dockerComposeFile: docker-compose.yaml
               projectName: p2
