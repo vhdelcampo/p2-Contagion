@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Contagion.Storage
+﻿namespace Contagion.Storage
 {
-    public class Class1
+  public class Class1
     {
     }
 }

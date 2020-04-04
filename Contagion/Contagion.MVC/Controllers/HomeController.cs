@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Contagion.MVC.Models;
-using Contagion.Storage.Database;
-using Contagion.Storage.Repositories;
 
 namespace Contagion.MVC.Controllers
 {
@@ -30,7 +28,7 @@ namespace Contagion.MVC.Controllers
         [HttpGet]
         public IActionResult Users()
         {
-            return View(new UserModel());
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
