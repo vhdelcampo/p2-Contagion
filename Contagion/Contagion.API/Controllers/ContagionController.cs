@@ -16,7 +16,8 @@ namespace Contagion.API.Controllers
     private static readonly List<ContagionModel> _fml = new List<ContagionModel>()
     {
       new ContagionModel() { Title = "Watchmen" },
-      new ContagionModel() { Title = "Forest Gump" }
+      new ContagionModel() { Title = "Forest Gump" },
+      new ContagionModel() { Title = "Test" }
     };
 
     private readonly ILogger<ContagionController> _logger;
