@@ -2,16 +2,6 @@ version: "3.7"
 
 services:
 
-  api:
-    build:
-      context: Contagion/Contagion.API
-      dockerfile: ../../.docker/api.dockerfile
-    image: bennetcd/apiproj
-    ports:
-      - 4000:80
-    networks:
-      - newt
-
   mvc:
     build:
       context: Contagion/Contagion.MVC
@@ -23,6 +13,18 @@ services:
       - newt
     environment:
       ConnectionStrings__main: "server=sql;database=contagiondb;user id=sa;password=Password12345"
+
+  api:
+    build:
+      context: Contagion/Contagion.API
+      dockerfile: ../../.docker/api.dockerfile
+    image: bennetcd/apiproj
+    ports:
+      - 4000:80
+    networks:
+      - newt
+
+  
       
   # sql:
   #   image: mcr.microsoft.com/mssql/server:2017-latest
