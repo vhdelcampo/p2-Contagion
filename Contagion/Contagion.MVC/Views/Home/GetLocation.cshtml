@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+
+<body>
+    <button id = "find-me">Show my location</button><br/>
+    <p id = "status"></p>
+
+    <script>
+        function geoFindMe() {
+            const status = document.querySelector('#status');
+
+            function success(position) {
+                const latitude  = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                status.textContent = 'Latitude: ${latitude} °, Longitude: ${longitude} °';
+            }
+
+            function error() {
+                status.textContent = 'Unable to retrieve your location';
+            }
+
+            if (!navigator.geolocation) {
+                status.textContent = 'Geolocation is not supported by your browser';
+            } else {
+                status.textContent = 'Locating…';
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+
+            }
+
+            document.querySelector('#find-me').addEventListener('click', geoFindMe);
+    </script>
+</body>
+
+</html>
+

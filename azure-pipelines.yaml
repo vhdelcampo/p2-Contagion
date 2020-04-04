@@ -19,19 +19,19 @@ stages:
   #     - job: test_api
 
 
-  - stage: analyze
-    jobs:
-      - job: analyze_mvc
-        pool:
-          vmImage: ubuntu-18.04
-        steps:
-          - task: DotnetGlobalToolInstaller@0
-            inputs:
-              name: "dotnet-sonarscanner"
-          - script: |
-              dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
-              dotnet build Contagion/*.sln
-              dotnet sonarscanner end
+  # - stage: analyze
+  #   jobs:
+  #     - job: analyze_mvc
+  #       pool:
+  #         vmImage: ubuntu-18.04
+  #       steps:
+  #         - task: DotnetGlobalToolInstaller@0
+  #           inputs:
+  #             name: "dotnet-sonarscanner"
+  #         - script: |
+  #             dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
+  #             dotnet build Contagion/*.sln
+  #             dotnet sonarscanner end
 
 
       # - job: analyze_api
@@ -87,9 +87,9 @@ stages:
               azureSubscriptionEndpoint: p2
               containerRegistryType: Container Registry
               dockerComposeFile: docker-compose.yaml
-              projectName: p2
+              projectName: $(Build.Repository.Name)
               buildImages: false
-              detached: false
+              detached: true
 
 
 trigger:
