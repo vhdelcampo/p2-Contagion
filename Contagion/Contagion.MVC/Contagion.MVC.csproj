@@ -12,9 +12,4 @@
     <PackageReference Include="Newtonsoft.json" Version="12.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Contagion.API\Contagion.API.csproj" />
-    <ProjectReference Include="..\Contagion.Storage\Contagion.Storage.csproj" />
-  </ItemGroup>
-
 </Project>

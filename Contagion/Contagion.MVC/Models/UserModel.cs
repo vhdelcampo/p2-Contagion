@@ -1,6 +1,6 @@
-using Contagion.Storage.Models;
+//using Contagion.Storage.Models;
 using System.Collections.Generic;
-using Contagion.Storage.Repositories;
+//using Contagion.Storage.Repositories;
 
 namespace Contagion.MVC.Models
 {
@@ -11,7 +11,7 @@ namespace Contagion.MVC.Models
     public int UserPhone { get; set; }
     public decimal Lat { get; set; }
     public decimal Long { get; set; }
-    public List<User> users { get; set; }
+    //public List<User> users { get; set; }
     
     public UserModel()
     {
