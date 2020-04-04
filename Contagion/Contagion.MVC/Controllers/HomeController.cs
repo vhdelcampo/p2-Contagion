@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Contagion.MVC.Models;
+using Contagion.Storage.Database;
+using Contagion.Storage.Repositories;
 
 namespace Contagion.MVC.Controllers
 {
     public class HomeController : Controller
     {
+        
+        
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -23,9 +27,10 @@ namespace Contagion.MVC.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Users()
         {
-            return View();
+            return View(new UserModel());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
