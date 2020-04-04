@@ -18,6 +18,7 @@ namespace Contagion.API.Controllers
       new ContagionModel() { Title = "Watchmen" },
       new ContagionModel() { Title = "Forest Gump" },
       new ContagionModel() { Title = "Test" }
+      new ContagionModel() { Title = "Test 2" }
     };
 
     private readonly ILogger<ContagionController> _logger;

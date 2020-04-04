@@ -9,7 +9,6 @@ using Contagion.MVC.Models;
 
 namespace Contagion.MVC.Controllers
 {
-    [Route("[controller]")]
     public class HomeController : Controller
     {
         
