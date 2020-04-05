@@ -50,7 +50,7 @@
       [33, 97]                  
     ];
     
-    for( i = 0; i < '@(Model.Count)'; i++) {
+    for(i = 0; i < '@(Model.Count)'; i++) {
       // var position = new google.maps.LatLng(markers[i][0], markers[i][1]);
       var position = new google.maps.LatLng('@(Model[i].Lat)', '@Model[i].Long')
       
