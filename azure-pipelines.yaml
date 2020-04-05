@@ -49,19 +49,6 @@ stages:
 
   - stage: pack
     jobs:
-      - job: pack_mvc
-        steps:
-          - task: Docker@2
-            inputs:
-              command: login
-              containerRegistry: docker
-          - script: |
-              docker image build --file .docker/mvc.dockerfile --tag bennetcd/mvcproj Contagion/Contagion.MVC
-              docker image push bennetcd/mvcproj
-          - task: Docker@2
-            inputs:
-              command: logout
-              containerRegistry: docker
       - job: pack_api
         steps:
           - task: Docker@2
@@ -71,6 +58,19 @@ stages:
           - script: |
               docker image build --file .docker/api.dockerfile --tag bennetcd/apiproj Contagion/Contagion.API
               docker image push bennetcd/apiproj
+          - task: Docker@2
+            inputs:
+              command: logout
+              containerRegistry: docker
+      - job: pack_mvc
+        steps:
+          - task: Docker@2
+            inputs:
+              command: login
+              containerRegistry: docker
+          - script: |
+              docker image build --file .docker/mvc.dockerfile --tag bennetcd/mvcproj Contagion/Contagion.MVC
+              docker image push bennetcd/mvcproj
           - task: Docker@2
             inputs:
               command: logout
