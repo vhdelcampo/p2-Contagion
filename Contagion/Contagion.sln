@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contagion.API", "Contagion.API\Contagion.API.csproj", "{6A7752B3-E475-4F39-A917-2C950D670011}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contagion.API", "Contagion\Contagion.API\Contagion.API.csproj", "{6A7752B3-E475-4F39-A917-2C950D670011}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contagion.MVC", "Contagion.MVC\Contagion.MVC.csproj", "{B594E00E-6911-44CE-9487-50442E6339D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contagion.MVC", "Contagion\Contagion.MVC\Contagion.MVC.csproj", "{B594E00E-6911-44CE-9487-50442E6339D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
