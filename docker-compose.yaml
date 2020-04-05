@@ -13,7 +13,7 @@ services:
       - newt
     environment:
       ConnectionStrings__main: "server=sql;database=contagiondb;user id=sa;password=Password12345"
-
+      
   api:
     build:
       context: Contagion/Contagion.API
@@ -24,15 +24,15 @@ services:
     networks:
       - newt
       
-  sql:
-    image: mcr.microsoft.com/mssql/server:2017-latest
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=Password12345
-    networks:
-      - newt
-    ports:
-      - 1433:1433
+  # sql:
+  #   image: mcr.microsoft.com/mssql/server:2017-latest
+  #   environment:
+  #     - ACCEPT_EULA=Y
+  #     - SA_PASSWORD=Password12345
+  #   networks:
+  #     - newt
+  #   ports:
+  #     - 1433:1433
       
 
 networks:
