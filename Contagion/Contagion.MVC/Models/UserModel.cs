@@ -8,16 +8,15 @@ namespace Contagion.MVC.Models
   {
     //private readonly UserRepo _up = new UserRepo();
 
-    public int UserPhone { get; set; }
+    public long UserPhone { get; set; }
     public decimal Lat { get; set; }
     public decimal Long { get; set; }
     //public List<User> users { get; set; }
     
-    public UserModel()
-    {
-      //users = _up.Get();
-    }
+    // public UserModel()
+    // {
+    //   //users = _up.Get();
+    // }
   }
-
   
 }

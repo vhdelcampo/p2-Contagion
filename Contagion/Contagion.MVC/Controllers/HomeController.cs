@@ -36,9 +36,13 @@ namespace Contagion.MVC.Controllers
             var response = _http.PostAsync("http://api/contagion", httpContent).GetAwaiter().GetResult();
 
             response.EnsureSuccessStatusCode();
-            return View();
+
+            var res = _http.GetAsync("http://api/contagion").GetAwaiter().GetResult();
+            var users = JsonConvert.DeserializeObject<List<UserModel>>(res.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+
+            return View("Map", users);
         }
-        []
+        
         public IActionResult GetLocation()
         {
             return View();
