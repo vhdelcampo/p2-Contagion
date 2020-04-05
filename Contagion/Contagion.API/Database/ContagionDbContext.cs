@@ -1,17 +1,20 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Contagion.Storage.Models;
+using Contagion.API.Models;
 
-namespace Contagion.Storage.Database
+namespace Contagion.API.Database
 {
   public class ContagionDbContext : DbContext
   {
+    // private static readonly ContagionDbContext _db = new ContagionDbContext();
+    // public ContagionDbContext Instance { get { return _db; } }
     public DbSet<User> User { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder builder)
-    {
-      builder.UseSqlServer("server=localhost;database=contagiondb;user id=sa;password=Password12345;");
-    }
+    // protected override void OnConfiguring(DbContextOptionsBuilder builder)
+    // {
+    //   builder.UseSqlServer("server=localhost;database=contagiondb;user id=sa;password=Password12345;");
+    // }
+    public ContagionDbContext(DbContextOptions options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -22,10 +25,13 @@ namespace Contagion.Storage.Database
         new User() { UserPhone = 1234567890, Lat = -13.12M, Long = 16.32M},
         new User() { UserPhone = 0987653432, Lat = 43.54M, Long = -78.65M},
       });
+      
     }
-    private static readonly ContagionDbContext _db = new ContagionDbContext();
-    public ContagionDbContext Instance { get { return _db; } }
+
+    
+    
   }
+  
 }
 // add migration
 //dotnet ef migrations add firstmigration -p Contagion.Storage/Contagion.Storage.csproj -s Contagion.MVC/Contagion.MVC.csproj
