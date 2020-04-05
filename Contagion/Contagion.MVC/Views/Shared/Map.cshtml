@@ -24,9 +24,9 @@
 <!--The div element for the map -->
 <div id="map"></div>
 
-<script type="text/javascript">
+@* <script type="text/javascript"> *@
   // Initialize and add the map
-  function initMap() {
+  @{function initMap() {
     // The location of Liv Apartment, Arlington.
     var arlington1 = { lat: 32.7286784, lng: -97.1046912 };
     // The map, centered at Arlington
@@ -51,8 +51,8 @@
     ];
     
     
-    foreach(var item in '@(Model)') {
-      var position = new google.maps.LatLng('@(item.Lat)', '@item.Long')
+    foreach(var item in @Model.Count) {
+      var position = new google.maps.LatLng(@item.Lat, @item.Long)
       
       bounds.extend(position);
       marker = new google.maps.Marker({
@@ -84,8 +84,8 @@
 
     map.setOptions({ styles: noPoi });
     map.fitBounds(bounds);
-  }
-</script>
+  }}
+@* </script> *@
 <!--Load the API from the specified URL
   * The async attribute allows the browser to render the page while the API loads
   * The key parameter will contain your own API key (which is not needed for this tutorial)
