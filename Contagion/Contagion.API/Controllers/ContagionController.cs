@@ -13,14 +13,14 @@ namespace Contagion.API.Controllers
   [Route("[controller]")]
   public class ContagionController : ControllerBase
   {
-    private static readonly List<ContagionModel> _fml = new List<ContagionModel>()
+    private static readonly List<UserModelApi> _uma = new List<UserModelApi>()
     {
-      new ContagionModel() { Title = "Watchmen" },
-      new ContagionModel() { Title = "Forest Gump" },
-      new ContagionModel() { Title = "Test" },
-      new ContagionModel() { Title = "Test 2" },
-      new ContagionModel() { Title = "Test 3" },
-      new ContagionModel() { Title = "Test 4" }
+      new UserModelApi() { UserPhone = 8175550150, Lat = 32.7286784M, Long = -97.1046912M},
+      new UserModelApi() { UserPhone = 8175550131, Lat = 32.7266784M, Long = -97.1046912M},      
+      new UserModelApi() { UserPhone = 8175550117, Lat = 32.7266784M, Long = -97.0846912M},
+      new UserModelApi() { UserPhone = 8175550142, Lat = 32.7286784M, Long = -97M},
+      new UserModelApi() { UserPhone = 8175550101, Lat = 33M, Long = -97.0846912M},
+      new UserModelApi() { UserPhone = 8175550148, Lat = 33M, Long = 97M}
     };
 
     private readonly ILogger<ContagionController> _logger;
@@ -30,11 +30,19 @@ namespace Contagion.API.Controllers
       _logger = logger;
     }
 
+    [HttpGet]
     public IActionResult Get()
     {
-      var res = (new HttpClient()).GetAsync("https://swapi.co/").GetAwaiter().GetResult();
-      var films = res.Content.ReadAsStringAsync();
-      return Ok(_fml);
+      // var res = (new HttpClient()).GetAsync("https://swapi.co/").GetAwaiter().GetResult();
+      // var films = res.Content.ReadAsStringAsync();
+      return Ok(_uma);
+    }
+
+    [HttpPost]
+    public IActionResult GetPost([FromBody] UserModelApi uma)
+    {      
+      _uma.Add(uma);
+      return Ok();
     }
   }
 }

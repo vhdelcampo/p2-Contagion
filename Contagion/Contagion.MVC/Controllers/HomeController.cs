@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Contagion.MVC.Models;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
 
 namespace Contagion.MVC.Controllers
 {
     public class HomeController : Controller
     {
         
+        private readonly HttpClient _http = new HttpClient();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -21,15 +25,20 @@ namespace Contagion.MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new UserModel());
         }
 
-        [HttpGet]
-        public IActionResult Users()
+        [HttpPost]
+        public IActionResult Users(UserModel userModel)
         {
+            string json = JsonConvert.SerializeObject(userModel);
+            HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = _http.PostAsync("http://api/contagion", httpContent).GetAwaiter().GetResult();
+
+            response.EnsureSuccessStatusCode();
             return View();
         }
-
+        []
         public IActionResult GetLocation()
         {
             return View();
