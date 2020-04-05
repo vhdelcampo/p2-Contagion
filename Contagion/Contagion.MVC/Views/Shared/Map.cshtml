@@ -50,17 +50,28 @@
       [33, 97]                  
     ];
     
-    for(i = 0; i < '@(Model.Count)'; i++) {
-      // var position = new google.maps.LatLng(markers[i][0], markers[i][1]);
-      var position = new google.maps.LatLng('@(Model[i].Lat)', '@Model[i].Long')
+    
+    foreach(var item in '@(Model)') {
+      var position = new google.maps.LatLng('@(item.Lat)', '@item.Long')
       
       bounds.extend(position);
       marker = new google.maps.Marker({
           position: position,
           map: map
       });
-      
     }
+    
+    // for(i = 0; i < '@(Model.Count)'; i++) {
+    //   // var position = new google.maps.LatLng(markers[i][0], markers[i][1]);
+    //   var position = new google.maps.LatLng('@(Model['i'].Lat)', '@Model['i'].Long')
+      
+    //   bounds.extend(position);
+    //   marker = new google.maps.Marker({
+    //       position: position,
+    //       map: map
+    //   });
+      
+    // }
 
     var noPoi = [
       {
