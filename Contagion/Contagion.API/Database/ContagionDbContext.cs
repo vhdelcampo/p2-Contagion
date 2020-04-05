@@ -14,7 +14,12 @@ namespace Contagion.API.Database
     // {
     //   builder.UseSqlServer("server=localhost;database=contagiondb;user id=sa;password=Password12345;");
     // }
-    public ContagionDbContext(DbContextOptions options) : base(options) { }
+
+    // public ContagionDbContext(DbContextOptions options) : base(options) { }
+
+    public ContagionDbContext(DbContextOptions<ContagionDbContext> options)
+      :base(options)
+    { }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -28,7 +33,10 @@ namespace Contagion.API.Database
       
     }
 
-    
+    public ContagionDbContext() : base()
+    {
+      
+    }
     
   }
   
