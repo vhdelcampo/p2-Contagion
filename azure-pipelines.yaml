@@ -6,12 +6,13 @@ name: $(date:yyyyMMdd)$(rev:.rr)
 stages:
   - stage: build
     jobs:
+      - job: build_api
+      steps:
+        - script: dotnet build Contagion/Contagion.API/*.csproj
       - job: build_mvc
         steps:
           - script: dotnet build Contagion/Contagion.MVC/*.csproj
-      - job: build_api
-        steps:
-          - script: dotnet build Contagion/Contagion.API/*.csproj
+
 
   # - stage: test
   #   jobs:
